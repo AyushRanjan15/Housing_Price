@@ -25,7 +25,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/AyushRanjan15/Housing_Price">
-    <img src="Housing_Price/data/images/logo.png" alt="Logo" width="100" height="40">
+    <img src="/data/images/logo.png" alt="Logo" width="100" height="60">
   </a>
 
   <h3 align="center">Ames Housing Price Prediction</h3>
