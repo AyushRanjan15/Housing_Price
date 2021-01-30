@@ -64,7 +64,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](http://ec2-18-234-65-148.compute-1.amazonaws.com)
 
-This project is inspired by the kaggle competition [![Housing Prices Competition for Kaggle Learn Users][kaggle-logo]](https://www.kaggle.com/c/home-data-for-ml-course/data).
+This project is inspired by the kaggle competition [![Housing Prices Competition for Kaggle Learn Users][]](https://www.kaggle.com/c/home-data-for-ml-course/data).
 
 ### Competition Description
 Ask a home buyer to describe their dream house, and they probably won't begin with the height of the basement ceiling or the proximity to an east-west railroad. But this playground competition's dataset proves that much more influences price negotiations than the number of bedrooms or a white-picket fence.
