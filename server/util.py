@@ -58,31 +58,25 @@ def load_saved_artifacts():
     with open('./artifacts/columns.json', 'r') as f:
         _data_columns = json.load(f)['data_columns']
         _msZoning = _data_columns[67:72]  # Identifies the general zoning classification of the sale
-        # _street = _data_columns[62:64]  # Type of road access to property
         _lotShape = _data_columns[72:76]  # General shape of property
         _landContour = _data_columns[76:80]  # Flatness of the property
         _utilities = _data_columns[80:82]  # Type of utilities available
         _lotConfig = _data_columns[82:87]  # Lot configuration (inside lot, corner lot)
         _landSlope = _data_columns[87:90]  # Slope of property
         _neighbourhood = _data_columns[90:115]
-        # _condition1 = _data_columns[107:116]  # Proximity to various conditions
-        # _condition2 = _data_columns[116:124]
         _blgType = _data_columns[115:120]  # Type of dwelling
         _houseStyle = _data_columns[120:128]  # Style of dwelling
-        # _roofMat = _data_columns[137:144]  # Roof material
         _exterior1 = _data_columns[128:143]
         _exterior2 = _data_columns[143:159]
         _msvnrtype = _data_columns[159:163]  # Masonry veneer type
         _foundation = _data_columns[163:169]
-        # _heating = _data_columns[169:175]
-        # _centrailAir = _data_columns[175:177]
-        _electrical = _data_columns[169:173]  # Electrical system
-        _garageType = _data_columns[173:180]
-        _garageFinish = _data_columns[180:184]
-        _pavedDrive = _data_columns[184:187]
-        _saleType = _data_columns[187:196]
-        _saleCondition = _data_columns[196:202]
-        _remodelFlag = _data_columns[202:208]
+        _electrical = _data_columns[169:174]  # Electrical system
+        _garageType = _data_columns[174:181]
+        _garageFinish = _data_columns[181:185]
+        _pavedDrive = _data_columns[185:188]
+        _saleType = _data_columns[188:197]
+        _saleCondition = _data_columns[197:203]
+        _remodelFlag = _data_columns[203:209]
 
 
 def get_estimated_price(lotfrontage, lotarea, street, condition1, condition2, overallqual,
@@ -103,6 +97,7 @@ def get_estimated_price(lotfrontage, lotarea, street, condition1, condition2, ov
     try:
         msZoning_index = _data_columns.index(msZoning.lower())
     except:
+        print("here")
         msZoning_index = -1
 
     try:
@@ -262,15 +257,6 @@ def get_estimated_price(lotfrontage, lotarea, street, condition1, condition2, ov
     x[56] = overallqualscore  ##
     x[57] = age_house  ##
     ##
-    # x[58] = overallqualscore ** 2
-    # x[59] = grlivarea ** 2
-    # x[60] = garagecars ** 2
-    # x[61] = garagearea ** 2
-    # x[62] = totalbsmtsf ** 2
-    # x[63] = firstflrsf ** 2
-    # x[64] = fullbath ** 2
-    # x[65] = totrmsabvgrd ** 2
-    # x[66] = yearbuilt ** 2
     x[58] = overallqualsq
     x[59] = grlivareasq
     x[60] = garagecarssq
@@ -341,7 +327,7 @@ def get_estimated_price(lotfrontage, lotarea, street, condition1, condition2, ov
     if remodelFlag_index > 0:
         x[remodelFlag_index] = 1
 
-    return round(_model.predict([x])[0], 2)
+    return round(np.exp(_model.predict([x])[0]), 2)
 
 
 
@@ -409,25 +395,26 @@ def get_remodelflag():
 if __name__ == '__main__':
     load_saved_artifacts()
     # print(get_saletype())
-    x = get_estimated_price(0.16780822, 0.0331861, 1, 1, 1,
-     0.44444444, 0.625, 0.61594203, 0.11666667, 1,
-     0, 0.33333333, 0.75, 0.6, 0.75,
-     0.25, 0.5, 0.16335932, 0.16666667, 0,
-     0.16780822, 0.21505728, 1, 0.5, 1,
-     0.2248738, 0, 0, 0.18462698, 0.33333333,
-     0, 0.33333333, 0, 0.375, 0.33333333,
-     0.33333333, 0.25, 1, 0, 0,
-     0.25, 0.20733427, 0.6, 0.6, 0.29171529,
-     0, 0, 0, 0, 0,
-     0, 0.45454545, 1, 0.40909091, 0.45,
-     0.36, 0.3258427, 0.38970588, 0.24242424, 0.05091453,
-     0.0625, 0.0429875, 0.04624964, 0.07373498, 0.11111111,
-     0.109375, 0.60753272, 'mszoning_rl', 'lotshape_reg', 'landcontour_lvl',
-     'utilities_allpub', 'lotconfig_inside', 'landslope_gtl', 'neighborhood_names',
-     'bldgtype_1fam', 'housestyle_1story', 'exterior1st_metalsd', 'exterior2nd_metalsd',
-     'masvnrtype_none', 'foundation_cblock', 'electrical_sbrkr', 'garagetype_attchd',
-     'garagefinish_rfn', 'paveddrive_y', 'saletype_wd', 'salecondition_normal', 'remod_flag_no')
-
+    # x = get_estimated_price(0.16780822, 0.0331861, 1, 1, 1,
+    #  0.44444444, 0.625, 0.61594203, 0.11666667, 1,
+    #  0, 0.33333333, 0.75, 0.6, 0.75,
+    #  0.25, 0.5, 0.16335932, 0.16666667, 0,
+    #  0.16780822, 0.21505728, 1, 0.5, 1,
+    #  0.2248738, 0, 0, 0.18462698, 0.33333333,
+    #  0, 0.33333333, 0, 0.375, 0.33333333,
+    #  0.33333333, 0.25, 1, 0, 0,
+    #  0.25, 0.20733427, 0.6, 0.6, 0.29171529,
+    #  0, 0, 0, 0, 0,
+    #  0, 0.45454545, 1, 0.40909091, 0.45,
+    #  0.36, 0.3258427, 0.38970588, 0.24242424, 0.05091453,
+    #  0.0625, 0.0429875, 0.04624964, 0.07373498, 0.11111111,
+    #  0.109375, 0.60753272, 'residential low density', 'regular', 'lvl',
+    #  'allpub', 'inside', 'gtl', 'names',
+    #  '1fam', 'one story', 'metal siding', 'metal siding',
+    #  'none', 'cinder block', 'sbrkr', 'attached to home',
+    #  'rough finished', 'y', 'wd', 'normal', 'no')
+    #
     # print(x)
-    # print(get_mszoning())
+    # print(_data_columns.index('residential low densitys'))
+    print(get_neighbourhood())
 

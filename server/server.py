@@ -15,59 +15,15 @@ def get_mszoning():
     return response
 
 
-# @app.route('/get_lotshape', methods=['GET'])
-# def get_lotshape():
-#     response = jsonify({
-#         'lotshape': util.get_lotshape()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
+@app.route('/get_lotshape', methods=['GET'])
+def get_lotshape():
+    response = jsonify({
+        'lotshape': util.get_lotshape()
+    })
 
+    response.headers.add('Access-Control-Allow-Origin', '*')
 
-# @app.route('/get_landcontour', methods=['GET'])
-# def get_landcontour():
-#     response = jsonify({
-#         'landcontour': util.get_landcontour()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
-
-
-# @app.route('/get_utilities', methods=['GET'])
-# def get_utilities():
-#     response = jsonify({
-#         'utilities': util.get_utilities()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
-
-
-# @app.route('/get_lotconfig', methods=['GET'])
-# def get_lotconfig():
-#     response = jsonify({
-#         'lotconfig': util.get_lotconfig()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
-
-
-# @app.route('/get_landslope', methods=['GET'])
-# def get_landslope():
-#     response = jsonify({
-#         'landslope': util.get_landslope()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
+    return response
 
 
 @app.route('/get_neighbourhood', methods=['GET'])
@@ -81,81 +37,48 @@ def get_neighbourhood():
     return response
 
 
-# @app.route('/get_blgtyp', methods=['GET'])
-# def get_blgtyp():
-#     response = jsonify({
-#         'blgtyp': util.get_blgtyp()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
+@app.route('/get_hosestyle', methods=['GET'])
+def get_hosestyle():
+    response = jsonify({
+        'housestyle': util.get_hosestyle()
+    })
+
+    response.headers.add('Access-Control-Allow-Origin', '*')
+
+    return response
 
 
-# @app.route('/get_hosestyle', methods=['GET'])
-# def get_hosestyle():
-#     response = jsonify({
-#         'housestyle': util.get_hosestyle()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
+@app.route('/get_exterior1', methods=['GET'])
+def get_exterior1():
+    response = jsonify({
+        'exterior1': util.get_exterior1()
+    })
+
+    response.headers.add('Access-Control-Allow-Origin', '*')
+
+    return response
 
 
-# @app.route('/get_exterior1', methods=['GET'])
-# def get_exterior1():
-#     response = jsonify({
-#         'exterior1': util.get_exterior1()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
+@app.route('/get_msvnrtype', methods=['GET'])
+def get_msvnrtype():
+    response = jsonify({
+        'msvnrtype': util.get_msvnrtype()
+    })
+
+    response.headers.add('Access-Control-Allow-Origin', '*')
+
+    return response
 
 
-# @app.route('/get_exterior2', methods=['GET'])
-# def get_exterior2():
-#     response = jsonify({
-#         'exterior2': util.get_exterior1()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
+@app.route('/get_foundation', methods=['GET'])
+def get_foundation():
+    response = jsonify({
+        'foundation': util.get_foundation()
+    })
 
+    response.headers.add('Access-Control-Allow-Origin', '*')
 
-# @app.route('/get_msvnrtype', methods=['GET'])
-# def get_msvnrtype():
-#     response = jsonify({
-#         'msvnrtype': util.get_msvnrtype()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
-
-
-# @app.route('/get_foundation', methods=['GET'])
-# def get_foundation():
-#     response = jsonify({
-#         'foundation': util.get_foundation()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
-
-#
-# @app.route('/get_electrical', methods=['GET'])
-# def get_electrical():
-#     response = jsonify({
-#         'electrical': util.get_electrical()
-#     })
-#
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#
-#     return response
+    return response
 
 
 @app.route('/get_garagetype', methods=['GET'])
@@ -173,39 +96,6 @@ def get_garagetype():
 def get_garagefinish():
     response = jsonify({
         'garagefinish': util.get_garagefinish()
-    })
-
-    response.headers.add('Access-Control-Allow-Origin', '*')
-
-    return response
-
-
-@app.route('/get_paveddrive', methods=['GET'])
-def get_paveddrive():
-    response = jsonify({
-        'paveddrive': util.get_paveddrive()
-    })
-
-    response.headers.add('Access-Control-Allow-Origin', '*')
-
-    return response
-
-
-@app.route('/get_saletype', methods=['GET'])
-def get_saletype():
-    response = jsonify({
-        'saletype': util.get_saletype()
-    })
-
-    response.headers.add('Access-Control-Allow-Origin', '*')
-
-    return response
-
-
-@app.route('/get_salecondition', methods=['GET'])
-def get_salecondition():
-    response = jsonify({
-        'salecondition': util.get_salecondition()
     })
 
     response.headers.add('Access-Control-Allow-Origin', '*')
@@ -265,7 +155,7 @@ def predict_home_price():
     totrmsabvgrd = float(request.form['totrmsabvgrd'])
     functional = int(request.form['functional'])
     fireplaces = float(request.form['fireplaces']) ##---> switched from into to float
-    fireplacequ = float(request.form['fireplacequ']) ##----> switched from into to float
+    fireplacequ = float(request.form['fireplacequ']) ##----> switched from int to float
     garagecars = float(request.form['garagecars'])
     garagearea = float(request.form['garagearea'])
     garagequal = float(request.form['garagequal'])

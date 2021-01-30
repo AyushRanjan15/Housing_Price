@@ -85,17 +85,6 @@
                     <span class="checkmark"></span>
                 </label>
 
-
-
-<!--                <p>-->
-<!--                    <input type="checkbox" id="utility1" name="uiUtility" value="utilities_allpub">-->
-<!--                    <label>All public Utilities (E,G,W,& S)</label>-->
-<!--                </p>-->
-
-<!--                <p>-->
-<!--                    <input type="checkbox" id="utility2" name="uiUtility" value="utilities_nosewa">-->
-<!--                    <label>Electricity and Gas Only</label>-->
-<!--                </p>-->
             </div>
 
             <div>
@@ -106,17 +95,6 @@
 
 
             </form>
-
-<!--    <form class="form">-->
-<!--        <p> Select a Type </p>-->
-<!--            <select class="location" name = "" id="uiType">-->
-<!--                    <option value = "None"> None </option>-->
-<!--                    <option value = "type1"> H </option>-->
-<!--                    <option value = "type2"> T </option>-->
-<!--                    <option value = "type3"> Type_u </option>-->
-
-<!--            </select>-->
-<!--    </form>-->
 
     <form class="form_right">
         <button type="button" class="collapsible">Basement</button>
@@ -365,16 +343,37 @@
 
             <button type="button" class="collapsible">Plot measurements</button>
             <div class="content">
-                <p>Landsize</p>
-                <input class="area" type="text" name="" id="uiLandSize">
-                <p>BuildingArea</p>
-                <input class="area" type="text" name="" id="uiBuildingArea">
-                <p>Year Built</p>
-                <input class="area" type="text" name="" id="uiYearBuilt">
-                <p>Month Sold</p>
-                <input class="area" type="text" name="" id="uiMoSold">
-                <p>Year Sold</p>
-                <input class="area" type="text" name="" id="uiYrSold">
+
+                <h4>General shape of property</h4>
+                <select class="drop_down" name="" id="uiLotShape">
+                    <option value="" disabled="disabled" selected="selected">Choose an option..</option>
+                </select>
+
+                <h4>Style of dwelling</h4>
+                <select class="drop_down" name="" id="uiHouseStyle">
+                    <option value="" disabled="disabled" selected="selected">Choose an option..</option>
+                </select>
+
+                <h4>Exterior covering on house</h4>
+                <select class="drop_down" name="" id="uiExterior1st">
+                    <option value="" disabled="disabled" selected="selected">Choose an option..</option>
+                </select>
+
+                <h4>Masonry veneer type</h4>
+                <select class="drop_down" name="" id="uiMasVnrType">
+                    <option value="" disabled="disabled" selected="selected">Choose an option..</option>
+                </select>
+
+                <h4>Type of foundation</h4>
+                <select class="drop_down" name="" id="uiFoundation">
+                    <option value="" disabled="disabled" selected="selected">Choose an option..</option>
+                </select>
+
+                <h4>House remodel</h4>
+                <select class="drop_down" name="" id="uiremod_flag">
+                    <option value="" disabled="disabled" selected="selected">Choose an option..</option>
+                </select>
+
             </div>
 
     </form>
