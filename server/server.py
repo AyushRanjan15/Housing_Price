@@ -37,7 +37,7 @@ def get_neighbourhood():
     return response
 
 
-@app.route('/get_hosestyle', methods=['GET'])
+@app.route('/get_housestyle', methods=['GET'])
 def get_hosestyle():
     response = jsonify({
         'housestyle': util.get_hosestyle()

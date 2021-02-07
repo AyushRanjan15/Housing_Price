@@ -282,8 +282,8 @@ function onClickedEstimatePrice() {
    var estPrice = document.getElementById("uiEstimatedPrice");
 
 
-   var url = "http://127.0.0.1:5000/predict_home_price"; //Use this if you are NOT using nginx which is first 7 tutorials
-//  var url = "/api/predict_home_price"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
+//   var url = "http://127.0.0.1:5000/predict_home_price"; //Use this if you are NOT using nginx which is first 7 tutorials
+  var url = "/api/predict_home_price"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
 
   $.post(url, {
     lotfrontage: parseFloat(0.16788),     //log of LotFrontage -> normal dist
@@ -400,7 +400,7 @@ function onPageLoad() {
 //    var url5 = "http://127.0.0.1:5000/get_lotshape";
 
     var url6 = "/api/get_housestyle";
-//    var url6 = "http://127.0.0.1:5000/get_hosestyle";
+//    var url6 = "http://127.0.0.1:5000/get_housestyle";
 
     var url7 = "/api/get_exterior1";
 //    var url7 = "http://127.0.0.1:5000/get_exterior1";
